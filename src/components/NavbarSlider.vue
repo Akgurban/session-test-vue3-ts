@@ -18,6 +18,8 @@ const theme = localStorage.getItem("theme");
 const props = defineProps<{
   per?: number;
 }>();
+console.log(sessions.getDark, "sessions.getDark");
+
 const widgetClass = (number: number, numberRoute: number) => {
   if (number == numberRoute && !sessions.getDark) {
     return "border-2 border-[#9484F7]";

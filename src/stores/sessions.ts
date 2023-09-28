@@ -223,7 +223,7 @@ export const useIndex = defineStore({
         img: "/4.svg",
       },
     ] as SessionItem[],
-    isDark: true,
+    isDark: false,
   }),
   actions: {
     getExistSession(day: number) {
