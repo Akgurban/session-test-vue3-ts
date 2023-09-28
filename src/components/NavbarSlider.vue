@@ -9,18 +9,21 @@ import "swiper/css/navigation";
 import { formatDate, formatFixDate, getWeek, getDay } from "@/utils/date";
 import { useRoute } from "vue-router";
 import { useI18n } from "vue-i18n";
+import { useIndex } from "@/stores/sessions";
 const { t, locale } = useI18n();
+const sessions = useIndex();
+
 const theme = localStorage.getItem("theme");
 
 const props = defineProps<{
   per?: number;
 }>();
 const widgetClass = (number: number, numberRoute: number) => {
-  if (number == numberRoute && theme == "light") {
+  if (number == numberRoute && !sessions.getDark) {
     return "border-2 border-[#9484F7]";
-  } else if (number == numberRoute && theme == "dark") {
+  } else if (number == numberRoute && sessions.getDark) {
     return "border-2 border-[#fff] bg-[#282C41] ";
-  } else if (number !== numberRoute && theme == "dark") {
+  } else if (number !== numberRoute && sessions.getDark) {
     return "border-2 border-[#9297b73d] bg-[#111a2b02] text-[#9297B7]";
   } else {
     return "border-2 border-[#9297b73d]";
