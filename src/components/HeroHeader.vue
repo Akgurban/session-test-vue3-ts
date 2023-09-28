@@ -92,7 +92,7 @@ const SetLocale = (e: string) => {
       </div>
 
       <IconPlus
-        v-if="!sessions.getDark"
+        v-if="sessions.getDark"
         class="w-7 h-7 cursor-pointer text-white"
         @click="sessions.addOneItem(+$route.params.id + 1)"
         src="@/assets/images/add.svg"

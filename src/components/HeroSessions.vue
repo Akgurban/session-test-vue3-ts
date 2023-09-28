@@ -45,7 +45,7 @@ watch(
       />
 
       <div
-        v-if="sessions.getDark"
+        v-if="!sessions.getDark"
         class="text-lg text-[#282C41] dark:text-white md:text-3xl md:w-1/2 w-3/4 mx-auto mt-5 mb-8"
         v-html="$t('no-session')"
       ></div>
